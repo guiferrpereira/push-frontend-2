@@ -1,0 +1,30 @@
+<header>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				{{#link-to 'index' class="navbar-brand"}}Push Frontend{{/link-to}}
+			</div>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+				<div class="navbar-form navbar-right" role="application">
+					{{#if session.isAuthenticated}}
+          	<span><b>User:</b> {{session.currentUser.name}} <b>Role:</b> {{session.currentUser.role}}</span>
+            {{bs-button title="Logout" clicked="invalidateSession"}}
+          {{else}}
+          	{{bs-button title="Login" clicked="authenticateSession"}}
+          {{/if}}
+          {{#link-to 'signup' type="primary" class="btn btn-primary"}}Register{{/link-to}}
+        </div>
+			</div>
+		</div>
+	</nav>
+</header>
+
+<div class="container">
+	{{outlet}}
+</div>

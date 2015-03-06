@@ -1,0 +1,15 @@
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		{{#bs-panel heading="App" type="info"}}
+			<p><b>Name:</b> {{name}}</p>
+			<p><b>Bio:</b> {{bio}}</p>
+			<div>
+				{{#if session.isAuthenticated}}
+					{{#link-to 'apps.edit' this class='btn btn-default'}}Edit{{/link-to}}
+					<button type="button" class="btn btn-danger" {{action 'deleteApp'}}>Delete</button>
+				{{/if}}
+			</div>
+		{{/bs-panel}}
+	</div>
+</div>
+
